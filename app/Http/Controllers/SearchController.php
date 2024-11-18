@@ -252,20 +252,16 @@ return $upcs['upcs'];
         "category",
         "cate_desc",
         "subcategory",
-        "sub_desc",
-        "brand",
+        "subcate_desc",
+       
         "description",
-        "size",
+  
         "uom",
-        "verify",
-        "verify_date",
-        "image",
-        "short_desc",
-        "subcat_full",
-        "category_full",
-        "end_date",
-        "compare",
-        "pic")->where('verify', 1) -> where('upc', $upc)->get() ;
+    
+        "state",
+        "exchange",
+       
+        ) -> where('upc', $upc)->get() ;
 
       //  return view('temp')->with($upcs);
         //return $arr;
@@ -404,6 +400,16 @@ return view('search')->with(['upcs'=>$result,'upc'=>$upc]);
 
  
  
+    public function noupc()
+    {
+
+       
+       // return view('search')->with('upcs','') ;
+        return view('searchsimple')->with(['upc'=>'', 'upcs'=>'']) ;
+
+        // return "test";
+
+    }
  
  
 
