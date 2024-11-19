@@ -244,10 +244,30 @@ return $upcs['upcs'];
       // return view('search')->with(['upcs'=>$result,'upc'=>$upc]);
     }
 
-    public function aplSearchSimple($upc)
+    public function aplSearchSimple($sstate, $upc)
     {
-        //$this->cate = $cate;
-        $upcs['upcs'] = Upc::select("id",
+
+      if($sstate=='all'){
+ //$this->cate = $cate;
+ $upcs['upcs'] = Upc::select("id",
+ "upc",
+ "category",
+ "cate_desc",
+ "subcategory",
+ "subcate_desc",
+
+ "description",
+
+ "uom",
+
+ "state",
+ "exchange",
+
+ ) -> where('upc', $upc)->get() ;
+
+      }else{
+
+         $upcs['upcs'] = Upc::select("id",
         "upc",
         "category",
         "cate_desc",
@@ -261,7 +281,10 @@ return $upcs['upcs'];
         "state",
         "exchange",
        
-        ) -> where('upc', $upc)->get() ;
+        ) -> where('state', $sstate)->where('upc', $upc)->get() ;
+      }
+        //$this->cate = $cate;
+       
 
        //dd($upcs);
       //  return view('temp')->with($upcs);
