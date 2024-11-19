@@ -24,6 +24,7 @@ use phpDocumentor\Reflection\DocBlock\Tags\Uses;
 Route::get('/', 'SearchController@index')->name('search');
 Route::get('/apl', 'SearchController@noupc')->name('search.noupc');
 Route::get('/apl/{upc}', 'SearchController@aplSearchSimple')->name('search.simple');
+Route::get('/barcode/{cate}', 'SearchController@barcode')->name('barcode');
 Route::get('/{state}', 'SearchController@refresh')->name('refresh');
 Route::post('/general', 'SearchController@general')->name('search.general');
 

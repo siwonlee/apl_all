@@ -263,8 +263,9 @@ return $upcs['upcs'];
        
         ) -> where('upc', $upc)->get() ;
 
+       //dd($upcs);
       //  return view('temp')->with($upcs);
-        //return $arr;
+       // return $upc;
        // return $upcs['upcs'];
        //$upc = $request->input('upc');
 
@@ -412,6 +413,37 @@ return view('search')->with(['upcs'=>$result,'upc'=>$upc]);
     }
  
  
+    public function barcode($cate)
+    {
+        //$this->cate = $cate;
+        $upcs['upcs'] = Upc::select("id",
+        "upc",
+        "category",
+        "cate_desc",
+        "subcategory",
+        "subcate_desc",
+       
+        "description",
+  
+        "uom",
+    
+        "state",
+        "exchange",
+       
+        ) -> where('category', $cate) -> get() ;
+
+      //  return view('temp')->with($upcs);
+        //return $arr;
+       // return $upcs['upcs'];
+       //$upc = $request->input('upc');
+
+      // $result = Upc::search($request->get('upc'))->paginate(10);
+       $result = $upcs['upcs'];
+
+
+        return view('barcode')->with(['upcs'=>$result, 'upc'=>$cate] );
+    }
+
 
 
     }

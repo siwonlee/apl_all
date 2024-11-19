@@ -21,47 +21,32 @@
  
 
  
-<table class="ui celled table">
-<thead>
-    <th>State</th>
-    <th>UPC</th>
-    <th>Category</th>
-    <th>Description</th>
-    <th>UOM</th>
-    <th>Exchange</th>
-</thead>
- 
-
-@foreach ($upcs as $c )
- 
- 
- 
- 
-
- 
- 
-<tr>
-
-<td>{{$c->state}}</td>
-<td>{{$c->upc}}</td>
-<td>{{$c->cate_desc}} - {{$c->subcate_desc}}</td>
-<td>{{$c->description}}</td>
-<td>{{$c->uom}}</td>
-<td>{{$c->exchange}}</td>
- 
-
-
-</tr>
-
-  
-
-
-
-
-    @endforeach
-
-</table>
-
+  <div class="overflow-x-auto">
+    <table class="table-auto w-full border-collapse border border-gray-300">
+        <thead class="bg-gray-200">
+            <tr>
+                <th class="border border-gray-300 px-4 py-2 text-left">State</th>
+                <th class="border border-gray-300 px-4 py-2 text-left">UPC</th>
+                <th class="border border-gray-300 px-4 py-2 text-left">Category</th>
+                <th class="border border-gray-300 px-4 py-2 text-left">Description</th>
+                <th class="border border-gray-300 px-4 py-2 text-left">UOM</th>
+                <th class="border border-gray-300 px-4 py-2 text-left">Exchange</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($upcs as $c)
+            <tr class="hover:bg-gray-100">
+                <td class="border border-gray-300 px-4 py-2">{{ $c->state }}</td>
+                <td class="border border-gray-300 px-4 py-2">{{ $c->upc }}</td>
+                <td class="border border-gray-300 px-4 py-2">{{ $c->cate_desc }} - {{ $c->subcate_desc }}</td>
+                <td class="border border-gray-300 px-4 py-2">{{ $c->description }}</td>
+                <td class="border border-gray-300 px-4 py-2">{{ $c->uom }}</td>
+                <td class="border border-gray-300 px-4 py-2">{{ $c->exchange }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
 
 
 

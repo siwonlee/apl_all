@@ -48,7 +48,12 @@ font-size: 13px;
 
 
         <!-- Scripts -->
+ 
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.6.0/dist/alpine.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js" defer></script>
+        
+
+
 
         <!-- PWA  -->
 <meta name="theme-color" content="#6777ef"/>
