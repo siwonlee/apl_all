@@ -20,7 +20,7 @@ Currently, as of 5/1/2024, 23 states' APLs have been collected and used as the s
 -	MO - Missouri  https://health.mo.gov/living/families/wic/wicretailer/
 -	MT - Montana https://dphhs.mt.gov/ecfsd/wic/retailers
 -	NC - North Carolina https://www.ncdhhs.gov/ncwicfoods
--	SC - South Carolina https://scdhec.gov/health/women-infants-children-wic-nutrition-program/info-wic-vendors
+-	SC - South Carolina  https://dph.sc.gov/health-wellness/family-planning/women-infants-and-children-wic-nutrition-program/info-wic-vendors
 -	TX - Texas https://www.hhs.texas.gov/providers/wic-providers/vendor-management-operations-unit/wic-authorized-product-list
 -	UT - Utah https://wic.utah.gov/vendors/authorized-foods-booklet/
 -	VA - Virginia https://www.vdh.virginia.gov/wic-retailers/2022-wic-food-list/2020-wic-food-application-information/
