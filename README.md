@@ -17,7 +17,7 @@ Currently, as of 5/1/2024, 23 states' APLs have been collected and used as the s
 -	MD - Maryland  https://mdwic.org
 -	MI - Michigan https://www.michigan.gov/mdhhs/assistance-programs/wic/wicvendors/wic-foods
 -	MN - Minnesota https://www.health.state.mn.us/people/wic/vendor/fpchng/upc/index.html
--	MO - Missouri https://health.mo.gov/living/families/wic/wicretailer/foodlist/
+-	MO - Missouri  https://health.mo.gov/living/families/wic/wicretailer/
 -	MT - Montana https://dphhs.mt.gov/ecfsd/wic/retailers
 -	NC - North Carolina https://www.ncdhhs.gov/ncwicfoods
 -	SC - South Carolina https://scdhec.gov/health/women-infants-children-wic-nutrition-program/info-wic-vendors
