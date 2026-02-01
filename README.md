@@ -4,7 +4,7 @@ WIC APL Checker is the PWA on nationwide WIC APL. The user can check whether the
 
 ## States' APL source
 
-Currently, as of 5/1/2024, 23 states' APLs have been collected and used as the search data source. The following is the list of the States' APL sources.
+Currently, as of 1/31/2026, 23 states' APLs have been collected and used as the search data source. The following is the list of the States' APL sources.
 
 -   AR - ARKANSAS https://healthy.arkansas.gov/programs-services/community-family-child-health/wic-women-infants-children/wic-vendor-management/
 -   AK - ALASKA https://health.alaska.gov/en/resources/wic-approved-foods/
