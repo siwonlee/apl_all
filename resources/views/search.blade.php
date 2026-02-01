@@ -1,5 +1,5 @@
-<?use Carbon\Carbon;?>
-<?
+@php use Carbon\Carbon; @endphp
+@php
 
 $upc = Request::input('upc');
 
@@ -7,18 +7,18 @@ $upc = Request::input('upc');
 
 //$cd_output = "";
 
-?>
+@endphp
 @extends('layouts.admin')
 
   @section('content')
-<?
+@php
 //dd($upcs);
-?>
+@endphp
 
 
 
  <div align=center>
-          <div style="margin:auto;margin-top:25px;"><img   src="wic_apl_checker.png" width=30%>
+          <div style="margin:auto;margin-top:25px;"><img src="{{ asset('wic_apl_checker.png') }}" width="30%" alt="APL Checker">
          {{-- <div class="text-5xl" style="text-align:center;"> APL Checker</div></div> --}}
 
    </div>
@@ -36,18 +36,14 @@ $upc = Request::input('upc');
 
    <form action="{{route('search.general')}}" method="post" >
 <div class="max-w-sm mx-auto">
- 
-   <select id="countries" name = "sstate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+
+   <select id="countries" name = "sstate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
    focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600
     dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
     <option  value="all" >Nationwide</option>
- <option @if (isset($sstate) && $sstate=="AK")
-     selected
- @endif="AK">AK - Alaska</option>
-<option  @if (isset($sstate) && $sstate=="AR")selected @endif 
-value="AR">AR - Arkansas</option>
-<option  @if (isset($sstate) && $sstate=="AR")selected @endif  
-value="CA">CA - California</option>
+ <option @if (isset($sstate) && $sstate=="AK") selected @endif value="AK">AK - Alaska</option>
+<option @if (isset($sstate) && $sstate=="AR") selected @endif value="AR">AR - Arkansas</option>
+<option @if (isset($sstate) && $sstate=="CA") selected @endif value="CA">CA - California</option>
 <option  @if (isset($sstate) && $sstate=="CO")selected @endif  value="CO">CO - Colorado</option>
 <option  @if (isset($sstate) && $sstate=="HI")selected @endif  value="HI">HI - Hawaii</option>
 <option  @if (isset($sstate) && $sstate=="ID")selected @endif  value="ID">ID - Idaho</option>
@@ -70,7 +66,7 @@ value="CA">CA - California</option>
 <option  @if (isset($sstate) && $sstate=="WV")selected @endif  value="WV">WV - West Virginia</option>
 
   </select>
- 
+
 
 
 
@@ -155,7 +151,7 @@ value=""
 </div>
 
 
- 
+
 
 
 
@@ -164,7 +160,7 @@ value=""
  <div id="status"  ></div>
 
 
- <?//dd($upcs);?>
+ {{-- dd($upcs); --}}
 
 
 @if($upcs !=='' and $upcs->count() > 0 and $cd_output == '')
@@ -185,13 +181,13 @@ value=""
 </thead>
 
 
- 
+
 
 
 
 @foreach ($upcs as $c )
 
- 
+
 <tr>
 
 <td>{{$c->state}}</td>
@@ -200,12 +196,12 @@ value=""
 <td>{{$c->description}}</td>
 <td>{{$c->uom}}</td>
 <td>{{$c->exchange}}</td>
- 
+
 
 
 </tr>
 
-  
+
 
 
 
@@ -214,7 +210,7 @@ value=""
 
 </table>
 
- 
+
 
 
 @elseif($cd_output !== 'start'  and $cd_output !== '')
@@ -259,7 +255,7 @@ value=""
 
 </div>
 
- 
+
 
 
   </div>
@@ -272,7 +268,7 @@ value=""
 
 
   <div data-role="footer" data-position="fixed" style="font-size:80%; font-color:#505050; text-align:right;padding-right:50px;">the latest db update date :
- 5/1/2024 </div>
+ 1/31/2026 </div>
  {{-- <div data-role="footer" data-position="fixed" style="font-size:80%; font-color:#505050; text-align:right;padding-right:50px;">the latest db update date :
   <?=date("F j, Y",time() - 86400);?> </div> --}}
 </div>
@@ -388,46 +384,16 @@ function beep(vol, freq, duration){
 
 <script type="text/javascript">
             window.addEventListener("load", function () {
-                let selectedDeviceId;
+                let selectedDeviceId = undefined; // undefined = default device (used when enumeration not supported)
                 const codeReader = new ZXing.BrowserMultiFormatReader();
                 console.log("ZXing code reader initialized");
-                 const upc1 = document.getElementById('upc1').value;
-                codeReader
-                    .listVideoInputDevices()
-                    .then((videoInputDevices) => {
-                        const sourceSelect =
-                            document.getElementById("sourceSelect");
-                        selectedDeviceId = videoInputDevices[0].deviceId;
-                        if (videoInputDevices.length >= 1) {
-                            videoInputDevices.forEach((element) => {
-                                const sourceOption =
-                                    document.createElement("option");
-                                sourceOption.text = element.label;
-                                sourceOption.value = element.deviceId;
-                                sourceSelect.appendChild(sourceOption);
-                            });
 
-                            sourceSelect.onchange = () => {
-                                selectedDeviceId = sourceSelect.value;
-                            };
-
-                            const sourceSelectPanel =
-                                document.getElementById("sourceSelectPanel");
-                            sourceSelectPanel.style.display = "block";
-                        }
-
-                        document
-                            .getElementById("startButton")
-                            .addEventListener("click", () => {
-
-// const constraints = window.constraints = {
-//     audio:false,
-//     video:{facingMode:{exact:"environment"}}};
-
+                function attachStartAndCloseHandlers() {
+                    document
+                        .getElementById("startButton")
+                        .addEventListener("click", () => {
                                 codeReader.decodeFromVideoDevice(
                                     selectedDeviceId, "video",
-                                // codeReader.decodeOnceFromConstraints(
-                                //     constraints, "video",
                                     (result, err) => {
                                         if (result) {
                                             console.log(result);
@@ -448,33 +414,62 @@ function beep(vol, freq, duration){
                                             )
                                         ) {
                                             console.error(err);
-                                            document.getElementById(
-                                                "result"
-                                            ).textContent = err;
+                                            var resultEl = document.getElementById("result");
+                                            if (resultEl) resultEl.textContent = err;
                                         }
                                     }
                                 );
                                 console.log(
-                                    `Started continous decode from camera with id ${selectedDeviceId}`
+                                    selectedDeviceId
+                                        ? `Started continuous decode from camera with id ${selectedDeviceId}`
+                                        : "Started continuous decode from default camera"
                                 );
                             });
 
-                        document
-                            .getElementById("closecamera")
-                            .addEventListener("click", () => {
-                                codeReader.reset();
-                                      $('#scancamera').modal('hide');
+                    document
+                        .getElementById("closecamera")
+                        .addEventListener("click", () => {
+                            codeReader.reset();
+                            $('#scancamera').modal('hide');
+                            console.log("Reset.");
+                        });
+                }
 
-                                console.log("Reset.");
+                if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
+                    console.warn("Camera device enumeration not supported (use HTTPS or a modern browser). Using default camera.");
+                    attachStartAndCloseHandlers();
+                    return;
+                }
 
+                codeReader
+                    .listVideoInputDevices()
+                    .then((videoInputDevices) => {
+                        const sourceSelect =
+                            document.getElementById("sourceSelect");
+                        if (videoInputDevices.length >= 1) {
+                            selectedDeviceId = videoInputDevices[0].deviceId;
+                            videoInputDevices.forEach((element) => {
+                                const sourceOption =
+                                    document.createElement("option");
+                                sourceOption.text = element.label || "Camera " + (sourceSelect.options.length + 1);
+                                sourceOption.value = element.deviceId;
+                                sourceSelect.appendChild(sourceOption);
                             });
 
+                            sourceSelect.onchange = () => {
+                                selectedDeviceId = sourceSelect.value;
+                            };
 
-
-
+                            const sourceSelectPanel =
+                                document.getElementById("sourceSelectPanel");
+                            sourceSelectPanel.style.display = "block";
+                        }
+                        attachStartAndCloseHandlers();
                     })
-                   .catch((err) => {
-                        console.error(err);
+                    .catch((err) => {
+                        console.warn("Could not list video devices, using default camera:", err);
+                        selectedDeviceId = undefined;
+                        attachStartAndCloseHandlers();
                     });
             });
 

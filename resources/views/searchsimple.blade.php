@@ -1,21 +1,13 @@
-<?use Carbon\Carbon;?>
-<?
-
-//$upc = Request::input('upc');
-?>
 @extends('layouts.admin')
 
 @section('content')
-<?
-//dd($upcs);
-?>
  
  
  
  
    
     
-@if($upcs !=='' and $upcs->count() > 0)
+@if($upcs && is_object($upcs) && $upcs->count() > 0)
 
 <div class="px-3 py-2">
  
