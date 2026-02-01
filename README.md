@@ -8,6 +8,7 @@ Currently, as of 1/31/2026, 23 states' APLs have been collected and used as the 
 
 -   AR - ARKANSAS https://healthy.arkansas.gov/programs-services/community-family-child-health/wic-women-infants-children/wic-vendor-management/
 -   AK - ALASKA https://health.alaska.gov/en/resources/wic-approved-foods/
+-   CA - California https://data.chhs.ca.gov/dataset/wic-authorized-product-list-apl
 -	CO - Colorado https://www.coloradowic.gov/wic-foods-list
 -	HI - Hawaii https://health.hawaii.gov/wic/vendor-information/
 -	ID - Idaho https://healthandwelfare.idaho.gov/providers/wic/wic-vendors
